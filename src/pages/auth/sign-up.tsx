@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, useNavigate } from "react-router-dom";
 
 const signUpForm = z.object({
   restaurantName: z.string(),
@@ -36,7 +36,7 @@ export function SignUp() {
           onClick: () => navigate("/sign-in"),
         },
       });
-    } catch (err) {
+    } catch {
       toast.error("Erro ao cadastrar restaurante.");
     }
   }
